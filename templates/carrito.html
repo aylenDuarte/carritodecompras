@@ -1,0 +1,571 @@
+{% extends 'base.html' %}
+
+{% block title %}Shopp{% endblock %}
+
+{% block loguin %}
+{% if user.is_authenticated %}
+
+
+
+Hi {{ user.username }}!
+
+<a href="{% url 'logout' %}" class="nav-link">
+<button class="btn btn-sm btn-outline-secondary" href="{% url 'logout' %}" type="button" style="color: white;border-color: azure;">Log Out</button></a>
+
+{% else %}
+  <a href="{% url 'login' %}" class="nav-link">
+  <button class="btn btn-outline-success me-2" href="{% url 'login' %}" type="button" style="color: white;border-color: azure;">Login</button></a>
+  <a href="/registrarse/" class="nav-link"><button class="btn btn-outline-success me-2" href="/registrarse/" type="button" style="color: white;border-color: azure;">Register</button></a>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+    {% if user.is_superuser %}
+
+    hi {{ user.username }} SuperUser
+
+    <input type="text" id="text1"></input>
+    <input type="button" id="button1" value="Add" onclick="add_element_to_array();"></input>
+    <input type="button" id="button2" value="Display" onclick="display_array();"></input>
+    
+    <div id="Result"></div>
+
+    <script>
+        
+    </script>
+
+
+    {% endif %}
+
+     <!--  cart modal  -->
+  <div class="cart-modal-overlay">
+    <div class="cart-modal">
+      <i id="close-btn" class="fas fa-times"></i>
+        <h1 class="cart-is-empty">Cart is empty</h1>
+      
+        <div class="product-rows">
+        </div>
+        <div class="total">
+          <h1 class="cart-total">TOTAL</h1>
+            <span class="total-price">$0</span>
+              <button class="purchase-btn">PURCHASE</button>
+        </div>
+      </div>
+    </div>
+<!--   end of cart modal -->
+  <div class="cart-btn">
+    <i id="cart" class="fas fa-shopping-cart"></i>
+      <span class ="cart-quantity">0</span>
+  </div>
+<!--  products  -->
+
+      
+  <div class="items-container">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="card-1 card">
+            <img class="product-image" src="https://cb.scene7.com/is/image/Crate/BlackSlcnTurnerWAcaciaHndlSHF18/$web_pdp_main_carousel_med$/190411134833/black-silicone-spatula-with-acacia-handle.jpg" alt="">
+                <button class="add-to-cart">Add to cart</button>
+                <span class="product-price">$536.99</span>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+
+            <div class="card-2 card">
+            <img class="product-image" src="https://cb.scene7.com/is/image/Crate/BlackSlcnLadleWAcaciaHndlSHF18/$web_pdp_main_carousel_med$/190411134833/black-silicone-ladle-with-acacia-handle.jpg" alt="">
+            <button class="add-to-cart">Add to cart</button>
+                <span class="product-price">$455.23</span>
+            </div>
+            
+        </div>
+
+        <div class="col-sm-12">
+
+            <div class="card-3 card">
+            <img class="product-image" src="https://cb.scene7.com/is/image/Crate/BlackSlcnSltSpnWAcaciaHndlSHF18/$web_pdp_main_carousel_med$/190411134833/black-silicone-slotted-spoon-with-acacia-handle.jpg" alt="">
+                <button class="add-to-cart">Add to cart</button>
+                <span class="product-price">$300.99</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="card-4 card">
+            <img class="product-image" src="https://cb.scene7.com/is/image/Crate/BlackSiliconeSpnWAcaHndSHS18/$web_pdp_main_carousel_med$/190411134833/black-silicone-spoon-with-acacia-handle.jpg" alt="">
+                <button class="add-to-cart">Add to cart</button>
+                <span class="product-price">$236.77</span>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+
+            <div class="card-5 card">
+            <img class="product-image" src="https://cb.scene7.com/is/image/Crate/BlackSiliconeSpnlaWAcaHndSHS18/$web_pdp_main_carousel_med$/190411134833/black-silicone-spoonula-with-acacia-handle.jpg" alt="">
+            <button class="add-to-cart">Add to cart</button>
+            <span class="product-price">$245.78</span>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+
+            <div class="card-6 card">
+                <img class="product-image" src="https://cb.scene7.com/is/image/Crate/BlackSiliconeWhiskWAcaHndSHS18/$web_pdp_main_carousel_med$/190411134833/black-silicone-whisk-with-acacia-handle.jpg" alt="">
+                <button class="add-to-cart">Add to cart</button>
+                <span class="product-price">$365.22</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="card-7 card">
+                <img class="product-image" src="https://cb.scene7.com/is/image/Crate/BlackSiliconeAcaciaS6SHF18/$web_pdp_main_carousel_med$/190411134833/black-silicone-utensils-with-acacia-handle.jpg" alt="">
+                <button class="add-to-cart">Add to cart</button>
+                <span class="product-price">$1536.99</span>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+
+
+            <div class="card-8 card">
+                <img class="product-image" src="https://cb.scene7.com/is/image/Crate/SSMeasuringCupsS4SHF18/$web_pdp_main_carousel_med$/190411135413/stainless-steel-measuring-cups-set-of-4.jpg" alt="">
+                <button class="add-to-cart">Add to cart</button>
+                <span class="product-price">$985.99</span>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+
+            
+            <div class="card-9 card">
+                <img class="product-image" src="https://cb.scene7.com/is/image/Crate/FrenchKitchenMrblRollngPinSHF16/$web_pdp_main_carousel_med$/190411135046/french-kitchen-marble-rolling-pin-with-stand.jpg" alt="">
+                <button class="add-to-cart">Add to cart</button>
+                <span class="product-price">$600</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            
+            <div class="card-10 card">
+                <img class="product-image" src="https://cb.scene7.com/is/image/Crate/Pyrex2cpGlsMsrCpRdSSS21_VND/$web_pdp_main_carousel_med$/201201172330/pyrex-2-cup-glass-measuring-cup-with-red-lettering.jpg" alt="">
+                <button class="add-to-cart">Add to cart</button>
+                <span class="product-price">$125.88</span>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+
+            <div class="card-11 card">
+                <img class="product-image" src="https://cb.scene7.com/is/image/Crate/DuralexGlassBowl10pcSetSHF18/$web_pdp_main_carousel_med$/190411135018/duralex-glass-bowl-10pc-set.jpg" alt="">
+                <button class="add-to-cart">Add to cart</button>
+                <span class="product-price">$1689.78</span>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+
+            <div class="card-12 card">
+                <img class="product-image" src="https://cb.scene7.com/is/image/Crate/CoraSglTrFrtBsktBnHngIronSSF21/$web_pdp_main_carousel_med$/210409182026/cora-basket-w-banana-hanger-iron.jpg" alt="">
+                <button class="add-to-cart">Add to cart</button>
+                <span class="product-price">$1523.59</span>
+            </div>
+        </div>
+    </div>
+
+  </div>
+</div>
+<!--  end of products  -->
+
+
+
+
+        <style type="text/css">
+        * {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.cart-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#cart {
+  position: relative;
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 1em 4em 0 0;
+}
+
+.cart-quantity {
+  color: white;
+  background-color: red;
+  padding: .2em .3em;
+  position: absolute;
+  margin: .8em 7.5em 0 0;
+  right: 0;
+  border: solid 2px red;
+  border-radius: 15px;
+  font-weight: bolder;
+}
+
+.items-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin-top: 1em
+}
+
+.card {
+/*   width: 15rem; */
+  margin: 1em;
+  position: relative;
+  overflow: hidden; 
+  text-align: center
+}
+
+.card:hover .add-to-cart {
+  transform: translateX(0);
+}
+
+.product-image {
+  margin-bottom: 1em
+}
+
+.add-to-cart {
+  background-color: black;
+  color: white;
+  position: absolute;
+  right: 0;
+  top: 65%;
+  padding: .5em 1em; 
+  transform: translateX(300px);
+  transition: .5s ease;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 1.2rem
+}
+
+.product-price {
+  padding-top: 1em;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.cart-modal-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 2;
+  transform: translateX(-200%);
+  transition: .5s ease-out;
+  
+}
+
+.cart-modal {
+  height: 90vh;
+  width: 50%;
+  background-color: rgb(50,50,50);
+  float: right;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+#close-btn {
+  font-size: 1.5rem;
+  float: right;
+  margin: .5em 2em 0 0;
+  color: white;
+  cursor: pointer;
+}
+
+.cart-is-empty {
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1em;
+  display: none;
+  
+}
+
+.total {
+  text-align: center;
+  margin: 2em 0 2em 0;
+/*   display: none; */
+}
+
+.cart-total {
+  color: white;
+}
+
+.total-price {
+  color: white;
+  font-size: 2rem;
+  display: block;
+}
+
+.purchase-btn {
+  font-size: 1rem;
+  font-weight: bolder;
+  background-color: green;
+  color: white;
+  padding: 1em 2em;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 2em 0 1em 0;
+  margin-top: -10rem;
+}
+
+.product-rows {
+  margin-top: 3em;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.product-row {
+  display: flex;
+  align-items: center;
+}
+
+.cart-image {
+  width: 10rem;
+  margin: 1em;
+}
+
+.cart-price {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.product-quantity {
+  width: 4rem;
+  font-size: 2rem;
+  margin-left: 3rem;
+}
+
+.remove-btn {
+  padding: 1em 2em;
+  background-color: red;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 3rem;
+  font-weight: bolder;
+  font-size: 1rem;
+}
+
+.remove-btn:active {
+  transform: translateY(5px);
+}
+
+@media (max-width: 1000px){
+  .cart-modal {
+    width: 100vw;
+  } 
+  
+  .product-row {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 2em;
+  }
+  
+  .remove-btn {
+    margin: 0
+  }
+  
+  .product-quantity {
+    margin: .5em 0 .5em 0
+  }
+}
+        </style>
+  
+    <script>
+
+            // open cart modal
+const cart = document.querySelector('#cart');
+const cartModalOverlay = document.querySelector('.cart-modal-overlay');
+
+cart.addEventListener('click', () => {
+  if (cartModalOverlay.style.transform === 'translateX(-200%)'){
+    cartModalOverlay.style.transform = 'translateX(0)';
+  } else {
+    cartModalOverlay.style.transform = 'translateX(-200%)';
+  }
+})
+// end of open cart modal
+
+// close cart modal
+const closeBtn = document.querySelector ('#close-btn');
+
+closeBtn.addEventListener('click', () => {
+  cartModalOverlay.style.transform = 'translateX(-200%)';
+});
+
+cartModalOverlay.addEventListener('click', (e) => {
+  if (e.target.classList.contains('cart-modal-overlay')){
+    cartModalOverlay.style.transform = 'translateX(-200%)'
+  }
+})
+// end of close cart modal
+
+// add products to cart
+const addToCart = document.getElementsByClassName('add-to-cart');
+const productRow = document.getElementsByClassName('product-row');
+
+for (var i = 0; i < addToCart.length; i++) {
+  button = addToCart[i];
+  button.addEventListener('click', addToCartClicked)
+}
+
+function addToCartClicked (event) {
+  button = event.target;
+  var cartItem = button.parentElement;
+  var price = cartItem.getElementsByClassName('product-price')[0].innerText;
+  
+  var imageSrc = cartItem.getElementsByClassName('product-image')[0].src;
+  addItemToCart (price, imageSrc);
+  updateCartPrice()
+}
+
+function addItemToCart (price, imageSrc) {
+  var productRow = document.createElement('div');
+  productRow.classList.add('product-row');
+  var productRows = document.getElementsByClassName('product-rows')[0];
+  var cartImage = document.getElementsByClassName('cart-image');
+  
+  for (var i = 0; i < cartImage.length; i++){
+    if (cartImage[i].src == imageSrc){
+      alert ('This item has already been added to the cart')
+      return;
+    }
+  }
+  
+  var cartRowItems = `
+  <div class="product-row">
+        <img class="cart-image" src="${imageSrc}" alt="">
+        <span class ="cart-price">${price}</span>
+        <input class="product-quantity" type="number" value="1">
+        <button class="remove-btn">Remove</button>
+        </div>
+        
+      `
+  productRow.innerHTML = cartRowItems;
+  productRows.append(productRow);
+  productRow.getElementsByClassName('remove-btn')[0].addEventListener('click', removeItem)
+  productRow.getElementsByClassName('product-quantity')[0].addEventListener('change', changeQuantity)
+  updateCartPrice()
+}
+// end of add products to cart
+
+// Remove products from cart
+const removeBtn = document.getElementsByClassName('remove-btn');
+for (var i = 0; i < removeBtn.length; i++) {
+  button = removeBtn[i]
+  button.addEventListener('click', removeItem)
+}
+
+function removeItem (event) {
+  btnClicked = event.target
+  btnClicked.parentElement.parentElement.remove()
+  updateCartPrice()
+}
+
+// update quantity input
+var quantityInput = document.getElementsByClassName('product-quantity')[0];
+
+for (var i = 0; i < quantityInput; i++){
+  input = quantityInput[i]
+  input.addEventListener('change', changeQuantity)
+}
+
+function changeQuantity(event) {
+  var input = event.target
+  if (isNaN(input.value) || input.value <= 0){
+    input.value = 1
+  }
+  updateCartPrice()
+}
+// end of update quantity input
+
+// update total price
+function updateCartPrice() {
+  var total = 0
+  for (var i = 0; i < productRow.length; i += 2) {
+    cartRow = productRow[i]
+  var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+  var quantityElement = cartRow.getElementsByClassName('product-quantity')[0]
+  var price = parseFloat(priceElement.innerText.replace('$', ''))
+  var quantity = quantityElement.value
+  total = total + (price * quantity )
+    
+  }
+  document.getElementsByClassName('total-price')[0].innerText =  '$' + total
+
+document.getElementsByClassName('cart-quantity')[0].textContent = i /= 2
+}
+// end of update total price
+
+// purchase items
+const purchaseBtn = document.querySelector('.purchase-btn');
+
+const closeCartModal = document.querySelector('.cart-modal');
+
+purchaseBtn.addEventListener('click', purchaseBtnClicked)
+
+function purchaseBtnClicked () {
+  alert ('Thank you for your purchase');
+  cartModalOverlay.style.transform= 'translateX(-100%)'
+ var cartItems = document.getElementsByClassName('product-rows')[0]
+ while (cartItems.hasChildNodes()) {
+   cartItems.removeChild(cartItems.firstChild)
+   
+ }
+  updateCartPrice()
+}
+// end of purchase items
+
+//alert user if cart is empty 
+
+
+    </script>
+    
+
+    
+    {% else %}
+  
+  <div class="card" style=" display: flex; justify-content: center; align-items: center;">
+    <div class="card-body" >
+      <img src="https://www.iconpacks.net/icons/2/free-user-login-icon-3057-thumb.png" class="rounded mx-auto d-block" alt="...">
+      <h5 class="card-title" style=" display: flex; justify-content: center; align-items: center;">you are not logged in</h5>
+      <a href="{% url 'login' %}" style=" display: flex; justify-content: center; align-items: center;text-decoration: none"><button type="button" class="btn btn-secondary btn-lg">Log In</button></a>
+    </div>
+  </div>
+{% endif %}
+{% endblock %}

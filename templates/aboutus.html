@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+
+{% block title %}About us{% endblock %}
+
+{% block loguin %}
+{% if user.is_authenticated %}
+
+
+
+Hi {{ user.username }}!
+
+<a href="{% url 'logout' %}" class="nav-link">
+<button class="btn btn-sm btn-outline-secondary" href="{% url 'logout' %}" type="button" style="color: white;border-color: azure;">Log Out</button></a>
+
+{% else %}
+  <a href="{% url 'login' %}" class="nav-link">
+  <button class="btn btn-outline-success me-2" href="{% url 'login' %}" type="button" style="color: white;border-color: azure;">Login</button></a>
+  <a href="/registrarse/" class="nav-link"><button class="btn btn-outline-success me-2" href="/registrarse/" type="button" style="color: white;border-color: azure;">Register</button></a>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class='container-fluid mx-auto mt-5 mb-5 col-12' style="text-align: center">
+  <div class="hd">Why People Believe in Us</div>
+  <p><small class="text-muted">Always render more and better service than <br />is expected of you, no matter what your ask may be.</small></p>
+  <div class="row" style="justify-content: center">
+      <div class="card col-md-3 col-12">
+          <div class="card-content">
+              <div class="card-body"> <img class="img" src="https://cb.scene7.com/is/image/Crate/cb_dPLP_20210622_PartySlate_Hero?wid=1904&qlt=85&op_sharpen=1" style="width: 100%;"/>
+                  <div class="shadow"></div>
+                  <div class="card-title"> Outdoor Wedding Tips with PartySlate </div>
+                  <div class="card-subtitle">
+                      <p> <small class="text-muted">gorgeous,
+                        naturally
+                        The most romantic wedding
+                        venue? Nature. Scroll for
+                        outdoor wedding tips and
+                        picks with PartySlate and
+                        Crate & Barrel.</small> </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="card col-md-3 col-12 ml-2">
+          <div class="card-content">
+              <div class="card-body"> <img class="img" src="https://cb.scene7.com/is/image/Crate/cb_dLP_20210624_Design_Hero_2?wid=1966&qlt=80&op_sharpen=1" style="width: 100%;"/>
+                  <div class="card-title"> have a quick design question?</div>
+                  <div class="card-subtitle">
+                      <p> <small class="text-muted"> CHAT WITH A DESIGNER  </small> </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="card col-md-3 col-12 ml-2">
+          <div class="card-content">
+              <div class="card-body"> <img class="img rck" src="https://cb.scene7.com/is/image/Crate/cb_dPLP_20210401_Hero2?wid=1620&qlt=80&op_sharpen=1" style="width: 100%;"/>
+                  <div class="card-title"> BBQ & Grilling </div>
+                  <div class="card-subtitle">
+                      <p> <small class="text-muted">
+                        it all tastes
+                        better outdoors
+                        Grill, smoke and bake your
+                        way through the season.</small> </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="form4 top">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-7 col-md-offset-2">
+              <div class="form-bg">
+                  <form class="form">
+                      <div class="form-group"> <label class="sr-only">Name</label> <input type="text" class="form-control" required="" id="nameNine" placeholder="Your Name"> </div>
+                      <div class="form-group"> <label class="sr-only">Email</label> <input type="email" class="form-control" required="" id="emailNine" placeholder="Email Address"> </div>
+                      <div class="form-group"> <label class="sr-only">Name</label> <textarea class="form-control" required="" rows="7" id="messageNine" placeholder="Write message"></textarea> </div> <button type="submit" class="btn text-center btn-blue">Send Message</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<style type="text/css">
+
+.form4 {
+    background-color: #4DB7FE;
+    background-size: cover
+}
+
+.top {
+    padding-top: 100px;
+    padding-bottom: 100px
+}
+
+.form-bg {
+    background: rgba(68, 68, 65, 0.77);
+    padding: 20px
+}
+
+.form {
+    background-color: white !important;
+    padding: 20px
+}
+
+.form-group {
+    margin-bottom: 20px
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0
+}
+
+.form-control {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid #61615e;
+    background: transparent;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s
+}
+
+button.btn {
+    display: block;
+    padding: 11px 32px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    margin: 30px 0px
+}
+
+.btn-blue {
+    background-color: #4285f4;
+    color: #fff;
+    border: 1px solid #4285f4
+}
+.card {
+    cursor: pointer
+}
+
+.hd {
+    font-size: 25px;
+    font-weight: 550
+}
+
+.card.hover,
+.card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .2)
+}
+
+.img {
+    margin-bottom: 35px;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222)
+}
+
+.card-title {
+    font-weight: 600
+}
+
+button.focus,
+button:focus {
+    outline: 0;
+    box-shadow: none !important
+}
+
+.ft {
+    margin-top: 25px
+}
+
+.chk {
+    margin-bottom: 5px
+}
+
+.rck {
+    margin-top: 20px;
+    padding-bottom: 15px
+}
+
+</style>
+
+{% endblock %}
+
+

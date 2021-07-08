@@ -1,0 +1,82 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{% endblock %}</title>
+  {% block script %}
+  
+    {% endblock %}
+
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    
+  
+</head>
+<body>
+  <main>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/principal">JAGUARETE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="/principal">Home</a>
+            <a class="nav-link" href="/aboutus">About Us</a>
+            <a class="nav-link" href="/">Shopp</a>
+          </div>
+        </div>
+        {% block loguin %}
+
+        {% endblock %}
+      </div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+  </main>
+  
+
+  <!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4" style="background-color: #928c8c; position: inherit; width: 100%; bottom: 0;">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Social buttons -->
+    <ul class="list-unstyled list-inline text-center" style="font-size: 1.5rem;color: whitesmoke;">
+      <li class="list-inline-item">
+        <a class="btn-floating btn-li mx-1" href="https://www.linkedin.com/in/aylen-duarte/">
+          <i class="fab fa-linkedin-in" style="color: aliceblue;"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-li mx-1" href="https://github.com/aylenDuarte">
+          <i class="fab fa-github-square" style="color: aliceblue;"></i>
+        </a>
+      </li>
+    </ul>
+    <!-- Social buttons -->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" style="background-color: rgba(0,0,0,0.2);color: rgba(255,255,255,0.6);">© 2021 Copyright:
+    <a href="https://www.linkedin.com/in/aylen-duarte/" style="color: white;"> AylenJDuarte</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+
+</body>
+</html>

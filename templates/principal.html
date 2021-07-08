@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block loguin %}
+{% if user.is_authenticated %}
+
+
+
+Hi {{ user.username }}!
+
+<a href="{% url 'logout' %}" class="nav-link">
+<button class="btn btn-sm btn-outline-secondary" href="{% url 'logout' %}" type="button" style="color: white;border-color: azure;">Log Out</button></a>
+
+{% else %}
+  <a href="{% url 'login' %}" class="nav-link">
+  <button class="btn btn-outline-success me-2" href="{% url 'login' %}" type="button" style="color: white;border-color: azure;">Login</button></a>
+  <a href="/registrarse/" class="nav-link"><button class="btn btn-outline-success me-2" href="/registrarse/" type="button" style="color: white;border-color: azure;">Register</button></a>
+{% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+
+<img src="https://cb.scene7.com/is/image/Crate/cb_dHP_20210603_BreadBowl_1?wid=1860&qlt=75&op_sharpen=1" style="display: flex; justify-content: center; align-items: center; margin-left: 10%;margin-top: -10%;height: 80%; width: 80%;">
+<div class="row">
+
+  <div class="col-4">
+    <div class="row">
+      <div class="card col-6">
+        <img src="https://cb.scene7.com/is/image/Crate/BlackSlcnTurnerWAcaciaHndlSHF18/$web_pdp_main_carousel_med$/190411134833/black-silicone-spatula-with-acacia-handle.jpg" class="img-fluid rounded-start" >
+      </div>
+      <div class="card col-6">
+        <div class="card-body">
+          
+          <a href="/" class="btn btn-primary">Comprar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="row">
+      <div class="card col-6">
+        <img src="https://cb.scene7.com/is/image/Crate/BlackSlcnLadleWAcaciaHndlSHF18/$web_pdp_main_carousel_med$/190411134833/black-silicone-ladle-with-acacia-handle.jpg" class="img-fluid rounded-start" >
+      </div>
+      <div class="card col-6">
+        <div class="card-body">
+          
+          <a href="/" class="btn btn-primary">Comprar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="row g-0">
+      <div class="card col-6">
+        <img src="https://cb.scene7.com/is/image/Crate/BlackSlcnSltSpnWAcaciaHndlSHF18/$web_pdp_main_carousel_med$/190411134833/black-silicone-slotted-spoon-with-acacia-handle.jpg" class="img-fluid rounded-start">
+      </div>
+      <div class="card col-6">
+        <div class="card-body">
+          
+          <a href="/" class="btn btn-primary">Comprar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
